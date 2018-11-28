@@ -1,4 +1,14 @@
 {
   "name": "@conjoinedcats/hgmg",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "description": "HyperGraph Modeling Grammar",
+  "license": "MIT",
+  "repository": "conjoinedcats/hgmg",
+  "keywords": [
+    "hypergraph",
+    "modeling",
+    "grammar",
+    "hgmg"
+  ]
 }
