@@ -10,5 +10,13 @@
     "modeling",
     "grammar",
     "hgmg"
-  ]
+  ],
+  "devDependencies": {
+    "@types/pluralize": "0.0.29",
+    "typescript": "^3.1.6",
+    "typings": "^2.1.1"
+  },
+  "dependencies": {
+    "pluralize": "^7.0.0"
+  }
 }
