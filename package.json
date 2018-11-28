@@ -1,7 +1,7 @@
 {
   "name": "@conjoinedcats/hgmg",
   "version": "1.0.0",
-  "main": "./dist/index.js",
+  "main": "index.js",
   "description": "HyperGraph Modeling Grammar",
   "license": "MIT",
   "repository": "conjoinedcats/hgmg",
@@ -18,5 +18,8 @@
   },
   "dependencies": {
     "pluralize": "^7.0.0"
+  },
+  "scripts": {
+    "build": "tsc"
   }
 }
