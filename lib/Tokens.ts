@@ -1,6 +1,7 @@
 export class BaseToken {
   protected _count: number = 0;
   protected _dim: number = 0;
+  // protected _syms: Array<string> = [];
 
   get count(): number {
     return this._count;
@@ -17,6 +18,14 @@ export class BaseToken {
   set dim(val: number) {
     this._dim = val;
   }
+
+  // get symbols(): Array<string> {
+  //   return this._syms;
+  // }
+
+  // set symbols(val: Array<string>) {
+  //   this._syms = val;
+  // }
 }
 
 export class QuadToken extends BaseToken {
