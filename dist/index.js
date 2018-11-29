@@ -7,7 +7,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var pluralize = __importStar(require("pluralize"));
+const pluralize = __importStar(require("pluralize"));
 function getPlural(str) {
     return pluralize.plural(str);
 }
