@@ -36,3 +36,23 @@ export class QToken {
     return QToken._re.test(input);
   }
 }
+
+export enum TokenType {
+  Address = 0,
+  Color = 1,
+  Class = 2,
+  Function = 3,
+  Root = 4
+}
+
+export class Token {
+  private static _symbols: Array<string> = ["@", "#", ".", "%", "\\"];
+
+  public static symbol(type: TokenType): string {
+    const n = <number>type;
+    if (n >= 0 && n < Token._symbols.length) {
+      return this._symbols[type as number];
+    }
+    return "";
+  }
+}
