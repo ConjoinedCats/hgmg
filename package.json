@@ -23,6 +23,7 @@
     "pluralize": "^7.0.0"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "mocha --reporter spec"
   }
 }
