@@ -25,7 +25,10 @@ describe('getPlural function test', () => {
 });
 
 describe('Sub-module export', () => {
-  it('should find Phrase', () => {
+  it('should find QPhrase', () => {
     expect(!!index.QPhrase).to.equal(true);
-  })
+  });
+  it('should find QToken', () => {
+    expect(!!index.QToken).to.equal(true);
+  });
 });

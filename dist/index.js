@@ -16,4 +16,4 @@ function getPlural(str) {
 }
 exports.getPlural = getPlural;
 __export(require("./src/Phrase"));
-__export(require("./src/Tokens"));
+// export * from "./src/Tokens";
