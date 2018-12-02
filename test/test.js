@@ -23,3 +23,9 @@ describe('getPlural function test', () => {
     expect(result).to.equal('Men');
   });
 });
+
+describe('Sub-module export', () => {
+  it('should find Phrase', () => {
+    expect(!!index.QPhrase).to.equal(true);
+  })
+});
