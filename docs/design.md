@@ -27,3 +27,18 @@ There is a frame for the 2D window with a direct map to the data space. What is 
 ### 3D
 
 The view in the 3D window is a projection flattened down for the 2D window. Distant objects may be seen, not just what is nearby.
+
+## Alpha channel for Hyper Index
+
+8bit alpha channel
+0000 0000 - 00 - self reference
+1111 1111 - ff - solid
+254 other combinations are an ordered index, giving an easy way to encode the relevant data in a 32bit PNG file.
+Depth 4 is 2^4 = 16 on a side, for the 2d area 16^2 = 256
+then encode a special list mapping each index address to a ServerRoot URL
+
+```
+&01 https://octri.xyz/0/0/000/01
+&02 //octri.xyz/333/02
+```
+
