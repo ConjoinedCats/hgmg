@@ -1,52 +1,57 @@
 "use strict";
-// import { BaseToken } from "./Tokens";
 Object.defineProperty(exports, "__esModule", { value: true });
-class QPhrase {
-    constructor(input) {
-        this._tkns = [];
-        this._str = input;
-    }
-    static parse(input) {
-        const retval = new Array();
-        const chars = [...input];
-        chars.forEach((v) => {
-            if (QToken.isValid(v)) {
-                retval.push(new QToken(v));
-            }
-        });
-        return retval;
+const Tokens_1 = require("./Tokens");
+class GrammarPhrase {
+    constructor(p) {
+        this.src = p;
+        this.tokens = this.src.split(" ").map(x => new Tokens_1.GrammarToken(x));
     }
 }
-exports.QPhrase = QPhrase;
-class QToken {
-    constructor(s) {
-        this._s = s;
-    }
-    get value() {
-        return this._s;
-    }
-    static isValid(input) {
-        return QToken._re.test(input);
-    }
-}
-QToken._re = new RegExp("^[0-3]+$");
-exports.QToken = QToken;
-var TokenType;
-(function (TokenType) {
-    TokenType[TokenType["Address"] = 0] = "Address";
-    TokenType[TokenType["Color"] = 1] = "Color";
-    TokenType[TokenType["Class"] = 2] = "Class";
-    TokenType[TokenType["Function"] = 3] = "Function";
-    TokenType[TokenType["Root"] = 4] = "Root";
-})(TokenType = exports.TokenType || (exports.TokenType = {}));
-class Token {
-    static symbol(type) {
-        const n = type;
-        if (n >= 0 && n < Token._symbols.length) {
-            return this._symbols[type];
-        }
-        return "";
-    }
-}
-Token._symbols = ["@", "#", ".", "%", "\\"];
-exports.Token = Token;
+exports.GrammarPhrase = GrammarPhrase;
+// export class QPhrase {
+//   private _str: string;
+//   private _tkns: Array<QToken> = [];
+//   constructor(input: string) {
+//     this._str = input;
+//   }
+//   static parse(input: string): Array<QToken> {
+//     const retval = new Array<QToken>();
+//     const chars = [...input];
+//     chars.forEach((v: string) => {
+//       if (QToken.isValid(v)) {
+//         retval.push(new QToken(v));
+//       }
+//     });
+//     return retval;
+//   }
+// }
+// export class QToken {
+//   private _s: string;
+//   private static _re = new RegExp("^[0-3]+$");
+//   constructor(s: string) {
+//     this._s = s;
+//   }
+//   get value(): string {
+//     return this._s;
+//   }
+//   static isValid(input: string): boolean {
+//     return QToken._re.test(input);
+//   }
+// }
+// export enum TokenType {
+//   Address = 0,
+//   Color = 1,
+//   Class = 2,
+//   Function = 3,
+//   Root = 4
+// }
+// export class Token {
+//   private static _symbols: Array<string> = ["@", "#", ".", "%", "\\"];
+//   public static symbol(type: TokenType): string {
+//     const n = <number>type;
+//     if (n >= 0 && n < Token._symbols.length) {
+//       return this._symbols[type as number];
+//     }
+//     return "";
+//   }
+// }

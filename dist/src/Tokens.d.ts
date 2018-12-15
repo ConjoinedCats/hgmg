@@ -1,12 +1,32 @@
-export declare class BaseToken {
-    protected _count: number;
-    protected _dim: number;
-    count: number;
-    dim: number;
+export declare enum TokenType {
+    Unknown = 0,
+    Address = 1,
+    Color = 2,
+    Root = 3,
+    Reference = 4,
+    Parent = 5,
+    Outward = 6,
+    String = 7,
+    Comment = 8
 }
-export declare class QuadToken extends BaseToken {
-    constructor();
+export declare enum ValueType {
+    nul = 0,
+    txt = 1,
+    dec = 2,
+    hex = 3
 }
-export declare class OctToken extends BaseToken {
-    constructor();
+export interface IToken {
+    type: TokenType;
+    value: string;
+}
+export declare class GrammarToken {
+    private _s;
+    private _t;
+    private _v;
+    protected static typeMap: {
+        [key: string]: TokenType;
+    };
+    constructor(token: string);
+    static parse(t: string): IToken;
+    readonly source: string;
 }
