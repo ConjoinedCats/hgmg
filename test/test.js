@@ -1,6 +1,7 @@
 'use strict';
 var expect = require('chai').expect;
 var index = require('../dist/index.js');
+
 describe('getPlural function test', () => {
   it('should return Boys', () => {
     var result = index.getPlural('Boy');
@@ -25,10 +26,10 @@ describe('getPlural function test', () => {
 });
 
 describe('Sub-module export', () => {
-  it('should find QPhrase', () => {
-    expect(!!index.QPhrase).to.equal(true);
+  it('should find GrammarToken', () => {
+    expect(!!index.GrammarToken).to.equal(true);
   });
-  it('should find QToken', () => {
-    expect(!!index.QToken).to.equal(true);
+  it('should find GrammarPhrase', () => {
+    expect(!!index.GrammarPhrase).to.equal(true);
   });
 });

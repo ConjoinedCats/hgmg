@@ -1,58 +1,68 @@
-// import { BaseToken } from "./Tokens";
+import { GrammarToken } from "./Tokens";
 
-export class QPhrase {
-  private _str: string;
-  private _tkns: Array<QToken> = [];
+export class GrammarPhrase {
+  private src: string;
+  private tokens: Array<GrammarToken>;
 
-  constructor(input: string) {
-    this._str = input;
+  constructor(p: string) {
+    this.src = p;
+    this.tokens = this.src.split(" ").map(x => new GrammarToken(x));
   }
 
-  static parse(input: string): Array<QToken> {
-    const retval = new Array<QToken>();
-    const chars = [...input];
-    chars.forEach((v: string) => {
-      if (QToken.isValid(v)) {
-        retval.push(new QToken(v));
-      }
-    });
-    return retval;
-  }
 }
+// export class QPhrase {
+//   private _str: string;
+//   private _tkns: Array<QToken> = [];
 
-export class QToken {
-  private _s: string;
-  private static _re = new RegExp("^[0-3]+$");
+//   constructor(input: string) {
+//     this._str = input;
+//   }
 
-  constructor(s: string) {
-    this._s = s;
-  }
+//   static parse(input: string): Array<QToken> {
+//     const retval = new Array<QToken>();
+//     const chars = [...input];
+//     chars.forEach((v: string) => {
+//       if (QToken.isValid(v)) {
+//         retval.push(new QToken(v));
+//       }
+//     });
+//     return retval;
+//   }
+// }
 
-  get value(): string {
-    return this._s;
-  }
+// export class QToken {
+//   private _s: string;
+//   private static _re = new RegExp("^[0-3]+$");
 
-  static isValid(input: string): boolean {
-    return QToken._re.test(input);
-  }
-}
+//   constructor(s: string) {
+//     this._s = s;
+//   }
 
-export enum TokenType {
-  Address = 0,
-  Color = 1,
-  Class = 2,
-  Function = 3,
-  Root = 4
-}
+//   get value(): string {
+//     return this._s;
+//   }
 
-export class Token {
-  private static _symbols: Array<string> = ["@", "#", ".", "%", "\\"];
+//   static isValid(input: string): boolean {
+//     return QToken._re.test(input);
+//   }
+// }
 
-  public static symbol(type: TokenType): string {
-    const n = <number>type;
-    if (n >= 0 && n < Token._symbols.length) {
-      return this._symbols[type as number];
-    }
-    return "";
-  }
-}
+// export enum TokenType {
+//   Address = 0,
+//   Color = 1,
+//   Class = 2,
+//   Function = 3,
+//   Root = 4
+// }
+
+// export class Token {
+//   private static _symbols: Array<string> = ["@", "#", ".", "%", "\\"];
+
+//   public static symbol(type: TokenType): string {
+//     const n = <number>type;
+//     if (n >= 0 && n < Token._symbols.length) {
+//       return this._symbols[type as number];
+//     }
+//     return "";
+//   }
+// }

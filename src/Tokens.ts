@@ -1,5 +1,3 @@
-import { Token } from "./Phrase";
-
 export enum TokenType {
   Unknown = 0,
   Address = 1,
@@ -21,13 +19,13 @@ export enum ValueType {
 
 export interface IToken {
   type: TokenType;
-  value: ValueType;
+  value: string;
 }
 
 export class GrammarToken {
   private _s: string;
   private _t: TokenType;
-  private _v: ValueType;
+  private _v: string;
 
   protected static typeMap: { [key: string]: TokenType } = {
     "@": TokenType.Address,
@@ -46,9 +44,9 @@ export class GrammarToken {
   }
 
   static parse(t: string): IToken {
-    const retval = {
+    const retval: IToken = {
       type: TokenType.Unknown,
-      value: ValueType.nul
+      value: ""
     };
 
     if (t.length > 0) {
@@ -58,13 +56,10 @@ export class GrammarToken {
       if (retval.type !== TokenType.Comment && retval.type !== TokenType.Unknown) {
         // const r = (t.length > 1) ? t.substring(1) : "";
         if (t.length > 1) {
-          const r = t.substring(1);
-
+          retval.value = t.substring(1);
         }
       }
-
     }
-
     return retval;
   }
 
