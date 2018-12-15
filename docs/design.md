@@ -14,6 +14,14 @@ Chunk parents may be overridden in the viewer, as well as overriding hyper or no
 
 The location of the viewer is called the "focus" and this is a RootAddress property. The viewer has a preference for outward limit and inward limit. Because the world is infinite in two directions the limits contrain processing for close-by detail and far-distant features.
 
+## Module Design
+
+Phases
+
+- Download/reload HOMG
+- Parse HOMG into HyperRegistry of HyperReferences
+- starting at Focus construct a RenderTree
+
 ## Rendering
 
 ### 1D

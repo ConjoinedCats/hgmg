@@ -1,45 +1,74 @@
-export class BaseToken {
-  protected _count: number = 0;
-  protected _dim: number = 0;
-  // protected _syms: Array<string> = [];
-
-  get count(): number {
-    return this._count;
-  }
-
-  set count(val: number) {
-    this._count = val;
-  }
-
-  get dim(): number {
-    return this._dim;
-  }
-
-  set dim(val: number) {
-    this._dim = val;
-  }
-
-  // get symbols(): Array<string> {
-  //   return this._syms;
-  // }
-
-  // set symbols(val: Array<string>) {
-  //   this._syms = val;
-  // }
+export enum TokenType {
+  Unknown = 0,
+  Address = 1,
+  Color = 2,
+  Root = 3,
+  Reference = 4,
+  Parent = 5,
+  Outward = 6,
+  String = 7,
+  Comment = 8
 }
 
-export class QuadToken extends BaseToken {
-  constructor() {
-    super();
-    this._count = 4;
-    this._dim = 2;
-  }
+export enum ValueType {
+  nul = 0,
+  txt = 1,
+  dec = 2,
+  hex = 3
 }
 
-export class OctToken extends BaseToken {
-  constructor() {
-    super();
-    this._count = 8;
-    this._dim = 3;
-  }
+export interface IToken {
+  type: TokenType;
+  value: ValueType;
 }
+
+export class GrammarToken {
+  private _s: string;
+  private _t: TokenType;
+  private _v: ValueType;
+
+  private map = {
+    "@": {
+      type: TokenType.Address
+    },
+    "#": {
+      type: TokenType.Address
+    },
+    "/": {
+      type: TokenType.Address
+    },
+    "&": {
+      type: TokenType.Address
+    },
+    "^": {
+      type: TokenType.Address
+    },
+    "!": {
+      type: TokenType.Address
+    },
+    ",": {
+      type: TokenType.Comment
+    },
+    "'": {
+      type: TokenType.Address
+    }
+  }
+
+  constructor(token: string) {
+    this._s = token;
+    ({ type: this._t, value: this._v } = GrammarToken.parse(token));
+  }
+
+  static parse(t: string): IToken {
+    const retval = {
+      type: TokenType.Unknown,
+      value: ValueType.nul
+    };
+
+    return retval;
+  }
+
+  get source(): string {
+    return this._s;
+  }
+} 
