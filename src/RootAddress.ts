@@ -10,7 +10,12 @@ export class RootAddress implements IEquatable<RootAddress> {
     this.sr = new ServerRoot();
     this.addr = new Address();
   }
+
   isEqual(x: RootAddress): boolean {
     return false;
+  }
+
+  contains(other: RootAddress): boolean {
+    return (this.sr == other.sr && other.addr.startsWith(this.addr));
   }
 }
