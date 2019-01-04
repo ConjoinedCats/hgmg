@@ -12,7 +12,7 @@ export enum TraversalMethods {
 export class RenderTree extends AddressedTree<HyperData> {
 
   constructor() {
-
+    super();
   }
 
   refocus(reg: HyperRegistry, target: Address) {
@@ -28,8 +28,8 @@ export class RenderTree extends AddressedTree<HyperData> {
   }
 
   protected firstNodeContaining(focus: RootAddress, method: TraversalMethods = TraversalMethods.TopFirst): AddressedTreeNode<HyperData> {
-    let retval: AddressedTreeNode<HyperData> = null;
-    ForEachChildNode(Top, x => { if (retval == null && x.Value.addr.Contains(focus)) { retval = x; } }, method);
-    return retval;
+    // let retval: AddressedTreeNode<HyperData>;
+    // this.forEachChild(Top, x => { if (retval == null && x.Value.addr.Contains(focus)) { retval = x; } }, method);
+    // return retval;
   }
 }
