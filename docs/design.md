@@ -18,9 +18,9 @@ The location of the viewer is called the "focus" and this is a RootAddress prope
 
 Phases
 
-- Download/reload HOMG
-- Parse HOMG into HyperRegistry of HyperReferences
-- starting at Focus construct a RenderTree
+- Parse HOMG to HyperRegistry
+- Load HyperReferences into RenderTree
+- Render HyperTree in Browser
 
 ## Rendering
 

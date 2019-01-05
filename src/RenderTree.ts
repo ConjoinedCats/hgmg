@@ -31,5 +31,6 @@ export class RenderTree extends AddressedTree<HyperData> {
     // let retval: AddressedTreeNode<HyperData>;
     // this.forEachChild(Top, x => { if (retval == null && x.Value.addr.Contains(focus)) { retval = x; } }, method);
     // return retval;
+    return new AddressedTreeNode<HyperData>(new HyperData(new RootAddress()));
   }
 }
