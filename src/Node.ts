@@ -1,35 +1,35 @@
 export class Node<T> {
-  private data: T;
-  private neighbors: NodeList<T>;
-  private parent?: Node<T>;
+  private _value: T;
+  private _children: NodeList<T>;
+  private _parent?: Node<T>;
 
-  constructor(data: T, neighbors?: NodeList<T>, parent?: Node<T>) {
-    this.data = data;
-    this.neighbors = neighbors || new NodeList<T>();
-    this.parent = parent;
+  constructor(value: T, children?: NodeList<T>, parent?: Node<T>) {
+    this._value = value;
+    this._children = children || new NodeList<T>();
+    this._parent = parent;
   }
 
-  get Value(): T {
-    return this.data;
+  get value(): T {
+    return this.value;
   }
 
-  get Neighbors(): NodeList<T> | undefined {
-    return this.neighbors;
+  get children(): NodeList<T> | undefined {
+    return this._children;
   }
 
-  get Parent(): Node<T> | undefined {
-    return this.parent;
+  get parent(): Node<T> | undefined {
+    return this._parent;
   }
 
   //   protected void DeleteChild(Node < T > node) {
-  //     this.neighbors.Remove(node);
+  //     this.children.Remove(node);
   //   }
 
   //   protected void DeleteExcept(Node < T > node) {
-  //     if(this.neighbors.Contains(node)) {
-  //   this.neighbors = new NodeList<T>() { node };
+  //     if(this.children.Contains(node)) {
+  //   this.children = new NodeList<T>() { node };
   // } else {
-  //   this.neighbors = new NodeList<T>();
+  //   this.children = new NodeList<T>();
   // }
   //   }
 }
