@@ -2,11 +2,21 @@ import { AddressedTreeNode } from "./AddressedTreeNode";
 import { TraversalMethods } from "./RenderTree";
 
 export class AddressedTree<T> {
+  private _focus: AddressedTreeNode<T>;
+  private _top: AddressedTreeNode<T>;
+
   private _x: Array<T>;
   // events for subscriptions...
 
   constructor() {
     this._x = [];
+  }
+
+  get focus(): AddressedTreeNode<T> {
+    return this._focus;
+  }
+  get top(): AddressedTreeNode<T> {
+    return this._top;
   }
 
   protected deleteOutsideHeight(node: AddressedTreeNode<T>, height: number) {
@@ -22,8 +32,8 @@ export class AddressedTree<T> {
       yield node;
     }
     // execute a delegate on the payload of each node in a specific traversal order, starting at a specific node
-    if (node && node.Neighbors) {
-      node.Neighbors.forEach((kid: AddressedTreeNode<T>) => {
+    if (node && node.children) {
+      node.children.forEach((kid: AddressedTreeNode<T>) => {
         this.forEachChild(kid, tm);
       })
     }
