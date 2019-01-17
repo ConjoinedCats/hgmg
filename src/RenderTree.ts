@@ -11,20 +11,24 @@ export enum TraversalMethods {
 }
 
 export class RenderTree extends AddressedTree<HyperData> {
-
   constructor() {
-    super();
+    const data = new HyperData(new RootAddress());
+    super(data);
   }
 
-  refocus(reg: HyperRegistry, target: Address) {
+  refocus(reg: HyperRegistry, target: Address) {}
 
-  }
+  protected loadDescendantsFor(
+    current: AddressedTreeNode<HyperData>,
+    inLimit: number,
+    reg: HyperRegistry
+  ) {}
 
-  protected loadDescendantsFor(current: AddressedTreeNode<HyperData>, inLimit: number, reg: HyperRegistry) {
-
-  }
-
-  protected loadAncestorsFor(child: AddressedTreeNode<HyperData>, outLimit: number, reg: HyperRegistry): AddressedTreeNode<HyperData> {
+  protected loadAncestorsFor(
+    child: AddressedTreeNode<HyperData>,
+    outLimit: number,
+    reg: HyperRegistry
+  ): AddressedTreeNode<HyperData> {
     return child;
   }
 
@@ -36,8 +40,6 @@ export class RenderTree extends AddressedTree<HyperData> {
   //   // node.children.forEach((kid: AddressedTreeNode<T>) => {
   //   //   this.forEachChild(kid, tm);
   //   // })
-
-
 
   //   return new AddressedTreeNode<HyperData>(new HyperData(new RootAddress()));
   // }
