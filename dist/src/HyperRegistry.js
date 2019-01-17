@@ -4,5 +4,10 @@ class HyperRegistry {
     constructor() {
         this._x = [];
     }
+    childrenFor(ra) {
+        return this._x.filter((x) => {
+            ra.contains(x.parent);
+        });
+    }
 }
 exports.HyperRegistry = HyperRegistry;

@@ -6,4 +6,5 @@ export declare class RootAddress implements IEquatable<RootAddress> {
     addr: Address;
     constructor();
     isEqual(x: RootAddress): boolean;
+    contains(other: RootAddress): boolean;
 }

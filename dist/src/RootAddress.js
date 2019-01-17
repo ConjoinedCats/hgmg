@@ -10,5 +10,8 @@ class RootAddress {
     isEqual(x) {
         return false;
     }
+    contains(other) {
+        return (this.sr == other.sr && other.addr.startsWith(this.addr));
+    }
 }
 exports.RootAddress = RootAddress;

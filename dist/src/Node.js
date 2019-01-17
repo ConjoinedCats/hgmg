@@ -1,19 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Node {
-    constructor(data, neighbors, parent) {
-        this.data = data;
-        this.neighbors = neighbors || new NodeList();
-        this.parent = parent;
+    constructor(value, children, parent) {
+        this._value = value;
+        this._children = children || new NodeList();
+        this._parent = parent;
     }
-    get Value() {
-        return this.data;
+    get value() {
+        return this.value;
     }
-    get Neighbors() {
-        return this.neighbors;
+    get children() {
+        return this._children;
     }
-    get Parent() {
-        return this.parent;
+    get parent() {
+        return this._parent;
     }
 }
 exports.Node = Node;

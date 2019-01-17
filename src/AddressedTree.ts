@@ -19,9 +19,9 @@ export class AddressedTree<T> {
   }
   get count(): number {
     let k = 0;
-    this.forEachChild(<AddressedTreeNode<T>>this.top, (node: AddressedTreeNode<T>) => {
-      k = k + 1;
-    });
+    // this.forEachChild(<AddressedTreeNode<T>>this.top, (node: AddressedTreeNode<T>) => {
+    //   k = k + 1;
+    // });
     var it = this.forEachChild(<AddressedTreeNode<T>>this.top);
     var res = it.next();
 
@@ -45,15 +45,16 @@ export class AddressedTree<T> {
   // get top
   // get count
 
-  protected deleteOutsideHeight(node: AddressedTreeNode<T>, height: number) {
-
-  }
+  protected deleteOutsideHeight(node: AddressedTreeNode<T>, height: number) {}
 
   // protected forEachChildNode(node: AddressedTreeNode<T>, callback: any, tm: TraversalMethods) {
 
   // }
 
-  protected *forEachChild(node: AddressedTreeNode<T>, tm: TraversalMethods = TraversalMethods.DepthFirst): IterableIterator<AddressedTreeNode<T>> {
+  protected *forEachChild(
+    node: AddressedTreeNode<T>,
+    tm: TraversalMethods = TraversalMethods.DepthFirst
+  ): IterableIterator<AddressedTreeNode<T>> {
     if (tm === TraversalMethods.TopFirst) {
       yield node;
     }
@@ -61,7 +62,7 @@ export class AddressedTree<T> {
     if (node && node.children) {
       node.children.forEach((kid: AddressedTreeNode<T>) => {
         this.forEachChild(kid, tm);
-      })
+      });
     }
     if (tm === TraversalMethods.DepthFirst) {
       yield node;
