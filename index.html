@@ -22,7 +22,8 @@
     var elem = document.getElementById('draw-group');
     var two = new Two({
       width: 285,
-      height: 200
+      height: 200,
+      autostart: true
     }).appendTo(elem);
 
     var circle = two.makeCircle(-70, 0, 50);
@@ -37,13 +38,17 @@
 
     // And have translation, rotation, scale like all shapes.
     group.translation.set(two.width / 2, two.height / 2);
-    group.rotation = Math.PI * 1.1;
+    group.rotation = Math.PI;
     group.scale = 0.75;
 
     // You can also set the same properties a shape have.
     group.linewidth = 7;
 
     two.update();
+
+    two.bind('update', function () {
+      group.rotation += 0.001;
+    });
   </script>
 
 </body>
