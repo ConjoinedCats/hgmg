@@ -8,9 +8,11 @@ A link is from one RootAddress to another RootAddress that may belong to the sam
 
 ### Methods
 
-`Load(sr: ServerRoot): Promise<IResult>`
+`.load(sr: ServerRoot): Promise<IResult>`
 
-`GetLinks(ra: RootAddress): Promise<Array<HyperReference>>`
+<!-- `.getLinks(ra: RootAddress): Promise<Array<HyperReference>>` -->
+
+<!-- `.on(name: string, callback)` -->
 
 ### Members
 
@@ -20,7 +22,10 @@ A link is from one RootAddress to another RootAddress that may belong to the sam
 
 ### Methods
 
+
 ### Members
+
+
 
 
 
@@ -33,8 +38,12 @@ A link is from one RootAddress to another RootAddress that may belong to the sam
 - child: RootAddress
 - isLocal: boolean
 
+
 ## Interfaces
 
 ### IResult
 
-### 
+### IIterator<T>
+
+- next(): <T>
+- get done: boolean
