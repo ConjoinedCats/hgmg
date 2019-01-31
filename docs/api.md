@@ -20,6 +20,9 @@ A link is from one RootAddress to another RootAddress that may belong to the sam
 
 ## RenderTree
 
+RenderTree<T>
+need a reference in each bucket
+
 ### Methods
 
 
@@ -42,8 +45,3 @@ A link is from one RootAddress to another RootAddress that may belong to the sam
 ## Interfaces
 
 ### IResult
-
-### IIterator<T>
-
-- next(): <T>
-- get done: boolean

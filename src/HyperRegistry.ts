@@ -8,6 +8,10 @@ export class HyperRegistry {
     this._x = [];
   }
 
+  get count(): number {
+    return this._x.length;
+  }
+
   childrenFor(ra: RootAddress): Array<HyperReference> {
     return this._x.filter((x: HyperReference) => {
       ra.contains(x.parent);
