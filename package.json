@@ -24,6 +24,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "bt": "tsc && mocha --reporter spec",
     "test": "mocha --reporter spec"
   }
 }

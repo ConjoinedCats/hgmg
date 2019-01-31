@@ -12,6 +12,12 @@ export class HyperRegistry {
     return this._x.length;
   }
 
+  loadMore(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      resolve();
+    });
+  }
+
   childrenFor(ra: RootAddress): Array<HyperReference> {
     return this._x.filter((x: HyperReference) => {
       ra.contains(x.parent);
